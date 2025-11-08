@@ -1,6 +1,5 @@
 const Admin = require("../models/adminModel");
 
-// Admin login
 const login = async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -23,7 +22,6 @@ const login = async (req, res) => {
   }
 };
 
-// Create admin (for initial setup - remove in production or protect)
 const register = async (req, res) => {
   try {
     const { username, password, email } = req.body;

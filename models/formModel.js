@@ -10,7 +10,7 @@ const formScheme = new mongoose.Schema({
   people: { type: Number, required: true },
   vacationType: { type: String, required: true },
 }, {
-  timestamps: true // This adds createdAt and updatedAt automatically
+  timestamps: true 
 });
 const formData = mongoose.model("formDatas", formScheme);
 module.exports = formData;

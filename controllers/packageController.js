@@ -1,6 +1,5 @@
 const Package = require("../models/packageModel");
 
-// Get all packages (filtered by type)
 const getAllPackages = async (req, res) => {
   try {
     const { type } = req.query; // 'ALLPACKAGES' or 'PACKAGES'
@@ -13,7 +12,6 @@ const getAllPackages = async (req, res) => {
   }
 };
 
-// Get single package by ID
 const getPackageById = async (req, res) => {
   try {
     const package = await Package.findById(req.params.id);
@@ -27,7 +25,6 @@ const getPackageById = async (req, res) => {
   }
 };
 
-// Create new package
 const createPackage = async (req, res) => {
   try {
     const { location, name, day, Pimage, packageType } = req.body;
@@ -47,7 +44,6 @@ const createPackage = async (req, res) => {
   }
 };
 
-// Update package
 const updatePackage = async (req, res) => {
   try {
     const { location, name, day, Pimage, packageType } = req.body;
@@ -73,7 +69,6 @@ const updatePackage = async (req, res) => {
   }
 };
 
-// Delete package
 const deletePackage = async (req, res) => {
   try {
     const deletedPackage = await Package.findByIdAndDelete(req.params.id);

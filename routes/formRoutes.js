@@ -3,7 +3,6 @@ const router = express.Router();
 const formController = require("../controllers/formController");
 const { body } = require("express-validator");
 
-// Submit form data with validation
 router.post(
   "/submitData",
   [

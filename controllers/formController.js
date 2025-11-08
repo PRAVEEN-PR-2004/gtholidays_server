@@ -1,9 +1,8 @@
 const formData = require("../models/formModel");
 const { validationResult } = require("express-validator");
 
-// Submit form data
 const submitForm = async (req, res) => {
-  // Validate request
+
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -42,7 +41,7 @@ const submitForm = async (req, res) => {
   }
 };
 
-// Get all form submissions
+
 const getAllSubmissions = async (req, res) => {
   try {
     const submissions = await formData.find().sort({ createdAt: -1 });
