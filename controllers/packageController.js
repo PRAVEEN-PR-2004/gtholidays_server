@@ -2,9 +2,7 @@ const Package = require("../models/packageModel");
 
 const getAllPackages = async (req, res) => {
   try {
-    const { type } = req.query; // 'ALLPACKAGES' or 'PACKAGES'
-    const query = type ? { packageType: type } : {};
-    const packages = await Package.find(query).sort({ createdAt: -1 });
+    const packages = await Package.find({}).sort({ createdAt: -1 });
     res.json(packages);
   } catch (error) {
     console.error("Error fetching packages:", error);
@@ -27,13 +25,12 @@ const getPackageById = async (req, res) => {
 
 const createPackage = async (req, res) => {
   try {
-    const { location, name, day, Pimage, packageType } = req.body;
+    const { location, name, day, Pimage } = req.body;
     const newPackage = new Package({
       location,
       name,
       day,
       Pimage,
-      packageType: packageType || "ALLPACKAGES",
       updatedAt: new Date()
     });
     await newPackage.save();
@@ -46,7 +43,7 @@ const createPackage = async (req, res) => {
 
 const updatePackage = async (req, res) => {
   try {
-    const { location, name, day, Pimage, packageType } = req.body;
+    const { location, name, day, Pimage } = req.body;
     const updatedPackage = await Package.findByIdAndUpdate(
       req.params.id,
       {
@@ -54,7 +51,6 @@ const updatePackage = async (req, res) => {
         name,
         day,
         Pimage,
-        packageType,
         updatedAt: new Date()
       },
       { new: true }

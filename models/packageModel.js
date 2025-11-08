@@ -5,7 +5,6 @@ const packageSchema = new mongoose.Schema({
   name: { type: String, required: true },
   day: { type: String, required: true },
   Pimage: { type: String, required: true }, 
-  packageType: { type: String, enum: ['ALLPACKAGES', 'PACKAGES'], required: true }, 
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now }
 });
