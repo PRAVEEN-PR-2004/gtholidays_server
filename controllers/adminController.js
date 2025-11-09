@@ -14,7 +14,7 @@ const login = async (req, res) => {
       return res.status(401).json({ error: "Invalid credentials" });
     }
     
-    // In production, use JWT tokens
+   
     res.json({ message: "Login successful", adminId: admin._id });
   } catch (error) {
     console.error("Error during login:", error);

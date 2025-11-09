@@ -3,7 +3,7 @@ require("dotenv").config();
 
 const toConnect = async () => {
   try {
-    const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://PraveenPR:Shakthi%40123@cluster0.jf6nwfi.mongodb.net/gtholiday?retryWrites=true&w=majority&appName=Cluster0";
+    const MONGODB_URI = process.env.MONGODB_URI;
     
     await mongoose.connect(MONGODB_URI);
     console.log("Connected to MongoDB Atlas");
